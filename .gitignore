@@ -1,0 +1,22 @@
+# Ignore all node_modules in subfolders
+**/node_modules/
+
+# Ignore all env files in subfolders
+**/.env
+**/.env.*
+
+# Logs
+**/*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Build
+**/dist
+**/build
+**/coverage
