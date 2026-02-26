@@ -6,8 +6,11 @@ const router = Router();
 router.use(
   "/",
   createProxyMiddleware({
-    target: "http://localhost:3001",
+    target: "http://localhost:4001/users",
     changeOrigin: true,
+    pathRewrite: {
+      '^/users': '/users'
+    }
   })
 );
 

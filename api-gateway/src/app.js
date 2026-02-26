@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import userRoutes from "./routes/user.proxy.js";
+import userProxy from "./routes/user.proxy.js";
 
 dotenv.config();
 
@@ -8,7 +8,6 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/users", userRoutes);
+app.use("/users", userProxy);
 
 export default app;
-
