@@ -1,21 +1,17 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import userRoutes from "./routes/user.routes.js";
-import { globalErrorHandler } from "./middlewares/error.middleware.js";
+import orderRoutes from "./routes/order.routes.js";
 
 dotenv.config();
 
 const app = express();
-
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
+  .then(() => console.log("Order DB Connected"))
   .catch((err) => console.log(err));
 
-app.use("/users", userRoutes);
-
-app.use(globalErrorHandler);
+app.use("/orders", orderRoutes);
 
 export default app;

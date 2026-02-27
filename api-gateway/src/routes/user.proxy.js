@@ -3,10 +3,12 @@ import { createProxyMiddleware } from "http-proxy-middleware";
 
 const router = Router();
 
+const target = process.env.USER_SERVICE_URL || "http://localhost:4001";
+
 router.use(
   "/",
   createProxyMiddleware({
-    target: "http://localhost:4001/users",
+    target: `${target}/users`,
     changeOrigin: true,
     pathRewrite: {
       '^/users': '/users'
